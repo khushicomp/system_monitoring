@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Monitor Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1 class="title">System Monitor Dashboard</h1>
+
+  <div class="cards">
+    <div class="card">
+      <h2>CPU Usage</h2>
+      <p><span id="cpu">--</span>%</p>
+      <div class="bar">
+        <div class="fill cpu-fill"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Memory</h2>
+      <p><span id="memory">--</span></p>
+    </div>
+
+    <div class="card">
+      <h2>Disk</h2>
+      <p><span id="disk">--</span></p>
+    </div>
+
+    <div class="card">
+      <h2>Uptime</h2>
+      <p><span id="uptime">--</span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

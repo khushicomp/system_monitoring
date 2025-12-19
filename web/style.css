@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* overlay */
+  z-index: -1;
+}
+
+
+body {
+  background-image: url("ima.jpg");
+  background-size: cover;
+  color: #e5e7eb;
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 700px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin: 40px 0 50px;
+  letter-spacing: 1.2px;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #60a5fa, #22d3ee);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+
+/* Card container */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 200px;
+  flex-wrap: wrap;
+}
+
+/* Card style */
+.card {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(12px); 
+  border-radius: 16px;
+  padding: 25px;
+  width: 260px;
+  height: 260px;
+  text-align: center;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+   
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9);
+}
+
+/* Card heading */
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #93c5fd;
+}
+
+/* Card value */
+.card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  transition: transform 0.2s ease;
+}
+
+/* Progress bar (CPU) */
+.bar {
+  height: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* CPU value animation base */
+#cpu {
+  display: inline-block;
+  transition: 
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+/* Normal */
+.cpu-normal {
+  color: #22c55e;
+  text-shadow: none;
+}
+
+/* Medium load */
+.cpu-warn {
+  color: #facc15;
+  text-shadow: 0 0 8px rgba(250, 204, 21, 0.8);
+}
+
+/* High spike */
+.cpu-spike {
+  color: #ef4444;
+  text-shadow:
+    0 0 10px rgba(239, 68, 68, 0.9),
+    0 0 20px rgba(239, 68, 68, 0.7),
+    0 0 35px rgba(239, 68, 68, 0.5);
+}
+

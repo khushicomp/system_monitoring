@@ -1,0 +1,13 @@
+# Compiled binaries
+monitor
+
+# Runtime generated files
+stats.json
+stats.tmp
+cpu_alerts.log
+
+# Editor / OS junk
+*.swp
+.DS_Store
+Thumbs.db
+*Zone.Identifier
