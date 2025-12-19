@@ -1,60 +1,86 @@
-\# System Monitoring Tool (C++)
+# Linux System Monitor with Web Dashboard
 
+A Linux-based system monitoring tool written in **C++** that collects real-time system statistics and visualizes them through a **web dashboard** using HTML, CSS, and JavaScript.
 
+This project demonstrates **system-level programming**, **full-stack integration**, and **real-time data visualization** without using heavy frameworks.
 
-A Linux-based system monitoring tool built in C++ that displays real-time system statistics.
+---
 
+## 🚀 Features
 
+- 📊 Real-time **CPU usage** calculation using `/proc/stat`
+- 🧠 **Memory usage** monitoring using `/proc/meminfo`
+- 💽 **Disk usage** using `statvfs`
+- ⏱ **System uptime** display
+- 🔄 Live updates every second
+- 🌐 Web-based dashboard with modern glassmorphism UI
+- 🚨 Visual CPU spike glow for high CPU usage
+- 🔐 Atomic file updates to prevent race conditions
 
-\## Features
+---
 
-\- CPU usage (time-differential calculation)
+## 🛠 Tech Stack
 
-\- Memory usage (using MemAvailable)
+### Backend
+- **C++**
+- Linux `/proc` filesystem
+- POSIX system calls
 
-\- Disk usage (statvfs system call)
+### Middleware
+- JSON file (`stats.json`)
+- Python HTTP server
 
-\- System uptime
+### Frontend
+- HTML
+- CSS (Glassmorphism UI)
+- JavaScript (Fetch API)
 
-\- Live refresh every second
+---
 
+## 🧩 Project Architecture
 
+Linux Kernel
+↓
+C++ System Monitor
+↓
+stats.json (atomic update)
+↓
+Python HTTP Server
+↓
+HTML / CSS / JavaScript Dashboard
 
-\## Concepts \& Technologies
+yaml
+Copy code
 
-\- Linux `/proc` virtual filesystem
+---
 
-\- Kernel ↔ user space interaction
+## ▶️ How to Run
 
-\- CPU performance counters
-
-\- Linux memory management
-
-\- Filesystem statistics
-
-\- System calls (`statvfs`)
-
-
-
-\## Project Structure
-
-system\_monitor/
-
-├── prototypes/ # Individual learning modules
-
-│ ├── cpu.cpp
-
-│ ├── memory.cpp
-
-│ ├── disk.cpp
-
-│ ├── uptime.cpp
-
-│ └── meminfo.cpp
-
-│
-
-├── system\_monitor.cpp # Final integrated monitor
-
-└── README.md
-
+### 1️⃣ Compile the monitor
+```bash
+g++ system_monitor.cpp -o monitor
+2️⃣ Start the system monitor
+bash
+Copy code
+./monitor
+3️⃣ Start the web server (in another terminal)
+bash
+Copy code
+cd web
+python3 -m http.server
+4️⃣ Open in browser
+arduino
+Copy code
+http://localhost:8000
+📁 Project Structure
+markdown
+Copy code
+system_monitor/
+├── system_monitor.cpp
+├── README.md
+├── .gitignore
+└── web/
+    ├── index.html
+    ├── style.css
+    ├── script.js
+    └── ima.jpg
